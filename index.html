@@ -12,536 +12,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
-            --success-color: #198754;
-            --danger-color: #dc3545;
-            --warning-color: #ffc107;
-            --info-color: #0dcaf0;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --white-color: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-
-        /* Navigation */
-        #mainNav {
-            background: rgba(13, 110, 253, 0.95);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        #mainNav.scrolled {
-            background: var(--primary-color);
-            box-shadow: 0 2px 30px rgba(0,0,0,0.2);
-        }
-
-        .navbar-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-link {
-            font-weight: 600;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            background: var(--warning-color);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            background: linear-gradient(135deg, rgba(13, 110, 253, 0.8), rgba(108, 117, 125, 0.8)),
-                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(13, 110, 253, 0.9), rgba(108, 117, 125, 0.7));
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 3vw, 1.5rem);
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-buttons {
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        /* Section Styling */
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--warning-color));
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            margin-bottom: 3rem;
-        }
-
-        /* Value Points */
-        .value-point {
-            padding: 1.5rem;
-            border-radius: 15px;
-            background: var(--white-color);
-            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(13, 110, 253, 0.1);
-        }
-
-        .value-point:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-
-        .value-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--info-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        /* Auction Cards */
-        .auction-card {
-            background: var(--white-color);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-            height: 100%;
-        }
-
-        .auction-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .card-image {
-            position: relative;
-            overflow: hidden;
-            height: 250px;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .auction-card:hover .card-image img {
-            transform: scale(1.1);
-        }
-
-        .auction-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 2;
-        }
-
-        .auction-badge .badge {
-            font-size: 0.8rem;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        .card-body {
-            padding: 2rem;
-        }
-
-        .auction-info {
-            background: var(--light-color);
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-        }
-
-        .current-bid {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .bid-amount {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color);
-        }
-
-        .bid-count {
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-        }
-
-        /* Filter Bar */
-        .filter-bar {
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        /* Testimonials */
-        .testimonial-card {
-            background: var(--white-color);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            margin-top: 1.5rem;
-        }
-
-        .author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 1rem;
-            border: 3px solid var(--primary-color);
-        }
-
-        /* Statistics */
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--secondary-color);
-            margin-top: 0.5rem;
-        }
-
-        /* Security Features */
-        .security-feature {
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-
-        .security-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--info-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            color: white;
-            font-size: 2rem;
-        }
-
-        /* Community Section */
-        .newsletter-signup {
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .social-links a {
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.2);
-        }
-
-        /* FAQ */
-        .accordion-item {
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 10px !important;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .accordion-button {
-            font-weight: 600;
-            border-radius: 10px !important;
-            background: var(--light-color);
-        }
-
-        .accordion-button:not(.collapsed) {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
-        }
-
-        .whatsapp-btn {
-            width: 60px;
-            height: 60px;
-            background: #25d366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            color: white;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--dark-color), #343a40) !important;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .value-point {
-                margin-bottom: 2rem;
-            }
-            
-            .card-body {
-                padding: 1.5rem;
-            }
-            
-            .whatsapp-float {
-                bottom: 1rem;
-                right: 1rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading animation for images */
-        img {
-            transition: opacity 0.3s ease;
-        }
-
-        img:not([src]) {
-            opacity: 0;
-        }
-
-        /* Custom buttons */
-        .btn {
-            border-radius: 25px;
-            font-weight: 600;
-            padding: 12px 30px;
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--info-color));
-        }
-
-        .btn-outline-primary {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            background: transparent;
-        }
-
-        .btn-outline-primary:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .btn-outline-light {
-            border: 2px solid white;
-            color: white;
-            background: transparent;
-        }
-
-        .btn-outline-light:hover {
-            background: white;
-            color: var(--primary-color);
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#home" aria-label="AutoSubastas - Inicio">
-                <i class="fas fa-car me-2" aria-hidden="true"></i>AutoSubastas
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="fas fa-car me-2"></i>AutoSubastas
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -573,31 +54,29 @@
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
         <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center">
+            <div class="row h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-10">
-                    <div class="hero-content">
-                        <h1 class="hero-title mb-4">
-                            Subastas Exclusivas de Autos a Escala
-                            <span class="text-warning d-block">Colecciona Historia en Miniatura</span>
-                        </h1>
-                        <p class="hero-subtitle mb-5">
-                            Modelos únicos, rarezas internacionales, subastas en tiempo real desde Bolivia para el mundo.
-                        </p>
-                        <div class="hero-buttons">
-                            <a href="#subastas" class="btn btn-primary btn-lg me-3 mb-3">
-                                <i class="fas fa-gavel me-2" aria-hidden="true"></i>Participa en la Subasta
-                            </a>
-                            <a href="#registro" class="btn btn-outline-light btn-lg mb-3">
-                                <i class="fas fa-user-plus me-2" aria-hidden="true"></i>Regístrate para Pujar
-                            </a>
-                        </div>
+                    <h1 class="hero-title mb-4">
+                        Subastas Exclusivas de Autos a Escala
+                        <span class="text-warning">Colecciona Historia en Miniatura</span>
+                    </h1>
+                    <p class="hero-subtitle mb-5">
+                        Modelos únicos, rarezas internacionales, subastas en tiempo real desde Bolivia para el mundo.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#subastas" class="btn btn-primary btn-lg me-3 mb-3">
+                            <i class="fas fa-gavel me-2"></i>Participa en la Subasta
+                        </a>
+                        <a href="#registro" class="btn btn-outline-light btn-lg mb-3">
+                            <i class="fas fa-user-plus me-2"></i>Regístrate para Pujar
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <a href="#valor" class="text-white" aria-label="Scroll to next section">
-                <i class="fas fa-chevron-down fa-2x" aria-hidden="true"></i>
+            <a href="#valor" class="text-white">
+                <i class="fas fa-chevron-down fa-2x"></i>
             </a>
         </div>
     </section>
@@ -606,50 +85,50 @@
     <section id="valor" class="py-5 bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h2 class="section-title text-start mb-4">¿Por qué elegir AutoSubastas?</h2>
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-4">¿Por qué elegir AutoSubastas?</h2>
                     <div class="value-points">
                         <div class="value-point mb-4">
                             <div class="d-flex align-items-start">
                                 <div class="value-icon me-3">
-                                    <i class="fas fa-gem" aria-hidden="true"></i>
+                                    <i class="fas fa-gem"></i>
                                 </div>
                                 <div>
-                                    <h5 class="mb-2">Modelos Únicos y Raros</h5>
-                                    <p class="mb-0">Subastas de modelos exclusivos de AutoArt, Kyosho, BBR y otras marcas premium reconocidas mundialmente.</p>
+                                    <h5>Modelos Únicos y Raros</h5>
+                                    <p>Subastas de modelos exclusivos de AutoArt, Kyosho, BBR y otras marcas premium.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="value-point mb-4">
                             <div class="d-flex align-items-start">
                                 <div class="value-icon me-3">
-                                    <i class="fas fa-users" aria-hidden="true"></i>
+                                    <i class="fas fa-users"></i>
                                 </div>
                                 <div>
-                                    <h5 class="mb-2">Comunidad Boliviana Activa</h5>
-                                    <p class="mb-0">Conecta con coleccionistas locales en un ambiente seguro y confiable, construyendo relaciones duraderas.</p>
+                                    <h5>Comunidad Boliviana Activa</h5>
+                                    <p>Conecta con coleccionistas locales en un ambiente seguro y confiable.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="value-point mb-4">
                             <div class="d-flex align-items-start">
                                 <div class="value-icon me-3">
-                                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                                    <i class="fas fa-shield-alt"></i>
                                 </div>
                                 <div>
-                                    <h5 class="mb-2">Autenticidad Garantizada</h5>
-                                    <p class="mb-0">Sin réplicas ni estafas. Cada pieza es verificada por expertos antes de ser listada en nuestra plataforma.</p>
+                                    <h5>Autenticidad Garantizada</h5>
+                                    <p>Sin réplicas ni estafas. Cada pieza es verificada por expertos.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="value-point mb-4">
                             <div class="d-flex align-items-start">
                                 <div class="value-icon me-3">
-                                    <i class="fas fa-shipping-fast" aria-hidden="true"></i>
+                                    <i class="fas fa-shipping-fast"></i>
                                 </div>
                                 <div>
-                                    <h5 class="mb-2">Envío Seguro Nacional</h5>
-                                    <p class="mb-0">Embalaje especializado y envío seguro a todo el territorio boliviano con seguimiento completo.</p>
+                                    <h5>Envío Seguro Nacional</h5>
+                                    <p>Embalaje especializado y envío seguro a todo el territorio boliviano.</p>
                                 </div>
                             </div>
                         </div>
@@ -657,7 +136,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="value-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Colección de autos a escala de lujo" class="img-fluid rounded shadow" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Colección de autos a escala" class="img-fluid rounded shadow">
                     </div>
                 </div>
             </div>
@@ -673,13 +152,12 @@
             </div>
             
             <!-- Filtros -->
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="filter-bar bg-light p-4 rounded">
+            <div class="row mb-4">
+                <div class="col-lg-12">
+                    <div class="filter-bar bg-light p-3 rounded">
                         <div class="row g-3">
                             <div class="col-md-3">
-                                <label for="filter-marca" class="form-label fw-semibold">Marca</label>
-                                <select id="filter-marca" class="form-select">
+                                <select class="form-select">
                                     <option>Todas las marcas</option>
                                     <option>Ferrari</option>
                                     <option>Toyota</option>
@@ -688,8 +166,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label for="filter-escala" class="form-label fw-semibold">Escala</label>
-                                <select id="filter-escala" class="form-select">
+                                <select class="form-select">
                                     <option>Todas las escalas</option>
                                     <option>1:64</option>
                                     <option>1:43</option>
@@ -698,8 +175,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label for="filter-estado" class="form-label fw-semibold">Estado</label>
-                                <select id="filter-estado" class="form-select">
+                                <select class="form-select">
                                     <option>Todos los estados</option>
                                     <option>Nuevo</option>
                                     <option>Usado - Excelente</option>
@@ -707,8 +183,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label for="filter-orden" class="form-label fw-semibold">Ordenar por</label>
-                                <select id="filter-orden" class="form-select">
+                                <select class="form-select">
                                     <option>Ordenar por</option>
                                     <option>Precio: Menor a Mayor</option>
                                     <option>Precio: Mayor a Menor</option>
@@ -722,19 +197,19 @@
             </div>
 
             <!-- Cards de Productos -->
-            <div class="row g-4 mb-5">
+            <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
-                    <article class="auction-card">
+                    <div class="auction-card">
                         <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1544829099-b9a0c5303bea?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ferrari F40 1987 modelo a escala" class="card-img-top" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1544829099-b9a0c5303bea?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ferrari F40" class="card-img-top">
                             <div class="auction-badge">
                                 <span class="badge bg-danger">Termina en 2h 15m</span>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title h5">Ferrari F40 1987</h3>
+                            <h5 class="card-title">Ferrari F40 1987</h5>
                             <p class="card-text">
-                                <small class="text-muted">AutoArt • Escala 1:18 • Nuevo en caja original</small>
+                                <small class="text-muted">AutoArt • 1:18 • Nuevo en caja</small>
                             </p>
                             <div class="auction-info">
                                 <div class="current-bid">
@@ -742,28 +217,28 @@
                                     <span class="bid-amount">$850 BOB</span>
                                 </div>
                                 <div class="bid-count">
-                                    <i class="fas fa-users me-1" aria-hidden="true"></i>12 ofertas
+                                    <i class="fas fa-users me-1"></i>12 ofertas
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100 mt-3" type="button">
-                                <i class="fas fa-gavel me-2" aria-hidden="true"></i>Pujar Ahora
+                            <button class="btn btn-primary w-100 mt-3">
+                                <i class="fas fa-gavel me-2"></i>Pujar Ahora
                             </button>
                         </div>
-                    </article>
+                    </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
-                    <article class="auction-card">
+                    <div class="auction-card">
                         <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Toyota Supra MK4 modelo a escala" class="card-img-top" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Toyota Supra" class="card-img-top">
                             <div class="auction-badge">
-                                <span class="badge bg-warning text-dark">Termina en 5h 42m</span>
+                                <span class="badge bg-warning">Termina en 5h 42m</span>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title h5">Toyota Supra MK4</h3>
+                            <h5 class="card-title">Toyota Supra MK4</h5>
                             <p class="card-text">
-                                <small class="text-muted">Kyosho • Escala 1:43 • Edición limitada</small>
+                                <small class="text-muted">Kyosho • 1:43 • Edición limitada</small>
                             </p>
                             <div class="auction-info">
                                 <div class="current-bid">
@@ -771,23 +246,408 @@
                                     <span class="bid-amount">$420 BOB</span>
                                 </div>
                                 <div class="bid-count">
-                                    <i class="fas fa-users me-1" aria-hidden="true"></i>8 ofertas
+                                    <i class="fas fa-users me-1"></i>8 ofertas
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100 mt-3" type="button">
-                                <i class="fas fa-gavel me-2" aria-hidden="true"></i>Pujar Ahora
+                            <button class="btn btn-primary w-100 mt-3">
+                                <i class="fas fa-gavel me-2"></i>Pujar Ahora
                             </button>
                         </div>
-                    </article>
+                    </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
-                    <article class="auction-card">
+                    <div class="auction-card">
                         <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Porsche 911 Turbo modelo a escala" class="card-img-top" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Porsche 911" class="card-img-top">
                             <div class="auction-badge">
                                 <span class="badge bg-success">Termina en 1d 3h</span>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h3 class="
+                            <h5 class="card-title">Porsche 911 Turbo</h5>
+                            <p class="card-text">
+                                <small class="text-muted">BBR • 1:24 • Usado - Excelente</small>
+                            </p>
+                            <div class="auction-info">
+                                <div class="current-bid">
+                                    <span class="bid-label">Oferta actual:</span>
+                                    <span class="bid-amount">$320 BOB</span>
+                                </div>
+                                <div class="bid-count">
+                                    <i class="fas fa-users me-1"></i>5 ofertas
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-3">
+                                <i class="fas fa-gavel me-2"></i>Pujar Ahora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-primary btn-lg">
+                    Ver Todas las Subastas <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Lo que Dicen Nuestros Coleccionistas</h2>
+                <p class="section-subtitle">Experiencias reales de nuestra comunidad</p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p>"He comprado más de 10 modelos en esta plataforma y cada pieza llegó impecable. ¡Una joya para coleccionistas serios!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Luis R." class="author-image">
+                            <div class="author-info">
+                                <h6>Luis R.</h6>
+                                <small>Sucre, Bolivia</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p>"La autenticidad de los modelos es impresionante. Nunca he tenido problemas con réplicas o estafas. Totalmente confiable."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="María S." class="author-image">
+                            <div class="author-info">
+                                <h6>María S.</h6>
+                                <small>La Paz, Bolivia</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p>"El embalaje es excepcional y los envíos siempre llegan a tiempo. He expandido mi colección significativamente."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Carlos M." class="author-image">
+                            <div class="author-info">
+                                <h6>Carlos M.</h6>
+                                <small>Santa Cruz, Bolivia</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="row text-center">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-item">
+                        <div class="stat-number">2,000+</div>
+                        <div class="stat-label">Subastas Completadas</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Satisfacción de Compradores</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Coleccionistas Activos</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stat-item">
+                        <div class="stat-number">9 Dptos.</div>
+                        <div class="stat-label">Cobertura Nacional</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seguridad y Confianza -->
+    <section id="seguridad" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Seguridad y Confianza</h2>
+                <p class="section-subtitle">Tu tranquilidad es nuestra prioridad</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="security-feature text-center">
+                        <div class="security-icon mb-3">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h5>Certificados de Autenticidad</h5>
+                        <p>Cada pieza viene con certificado de autenticidad y validación por expertos.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="security-feature text-center">
+                        <div class="security-icon mb-3">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h5>Pagos Seguros</h5>
+                        <p>Tigo Money, QR, transferencias bancarias y tarjetas de crédito/débito.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="security-feature text-center">
+                        <div class="security-icon mb-3">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h5>Política de Devolución</h5>
+                        <p>Garantía de reembolso por piezas dañadas o no conformes a la descripción.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="security-feature text-center">
+                        <div class="security-icon mb-3">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h5>Transparencia Total</h5>
+                        <p>Comisiones claras, sin costos ocultos. Todo transparente desde el inicio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comunidad y Eventos -->
+    <section id="comunidad" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-3">Únete a Nuestra Comunidad</h2>
+                    <p class="mb-4">Conecta con otros coleccionistas, participa en eventos exclusivos y mantente al día con las últimas subastas.</p>
+                    <div class="community-features">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-calendar-alt me-3 fa-2x"></i>
+                                    <div>
+                                        <h6>Próximamente: DiecastCon La Paz 2025</h6>
+                                        <small>El evento más grande de coleccionistas</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-users me-3 fa-2x"></i>
+                                    <div>
+                                        <h6>Grupos de Coleccionistas</h6>
+                                        <small>Únete a nuestras comunidades en redes sociales</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="newsletter-signup bg-white text-dark p-4 rounded">
+                        <h5 class="mb-3">Suscríbete al Boletín</h5>
+                        <p class="small mb-3">Recibe notificaciones de nuevas subastas y eventos exclusivos.</p>
+                        <form>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Tu email">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Suscribirse</button>
+                        </form>
+                        <div class="social-links mt-3 text-center">
+                            <a href="#" class="text-primary me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                            <a href="#" class="text-primary me-3"><i class="fab fa-tiktok fa-2x"></i></a>
+                            <a href="#" class="text-primary"><i class="fab fa-instagram fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Resolvemos tus dudas más comunes</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    ¿Cómo puedo participar en una subasta?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Primero debes registrarte en nuestra plataforma. Una vez registrado, puedes explorar las subastas activas y hacer ofertas en tiempo real. Solo necesitas hacer clic en "Pujar Ahora" e ingresar tu oferta.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    ¿Cómo sé si un auto es original?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Todos nuestros modelos son verificados por expertos antes de ser listados. Cada pieza incluye fotos detalladas, descripción completa del fabricante, escala, estado y certificado de autenticidad cuando aplica.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    ¿Qué pasa si gano la subasta?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Te notificaremos inmediatamente por email y WhatsApp. Tendrás 24 horas para completar el pago. Una vez confirmado el pago, preparamos tu pedido con embalaje especializado y coordinamos el envío.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    ¿Cuáles son los tiempos y métodos de envío?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Realizamos envíos a todo Bolivia. Los tiempos varían según la ciudad: La Paz y El Alto (1-2 días), Santa Cruz y Cochabamba (2-3 días), otras ciudades (3-5 días). Usamos embalaje especializado para proteger las piezas.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    ¿Cómo proteger mi compra?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Ofrecemos garantía de reembolso si la pieza no coincide con la descripción o llega dañada. Todos los envíos incluyen seguro. Además, mantenemos comunicación constante durante todo el proceso de compra y envío.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="mb-3">
+                        <i class="fas fa-car me-2"></i>AutoSubastas
+                    </h5>
+                    <p>La plataforma líder en subastas de autos de colección en Bolivia. Conectando coleccionistas con piezas únicas desde 2023.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-tiktok fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="mb-3">Enlaces Rápidos</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#subastas" class="text-white-50">Ver Subastas</a></li>
+                        <li><a href="#" class="text-white-50">Cómo Funciona</a></li>
+                        <li><a href="#" class="text-white-50">Blog</a></li>
+                        <li><a href="#" class="text-white-50">Eventos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="mb-3">Soporte</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#faq" class="text-white-50">FAQ</a></li>
+                        <li><a href="#" class="text-white-50">Términos de Uso</a></li>
+                        <li><a href="#" class="text-white-50">Privacidad</a></li>
+                        <li><a href="#" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="mb-3">Contacto</h6>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2"></i>La Paz, Bolivia</p>
+                        <p><i class="fas fa-phone me-2"></i>+591 7000-0000</p>
+                        <p><i class="fas fa-envelope me-2"></i>info@autosubastas.bo</p>
+                        <p><i class="fab fa-whatsapp me-2"></i>WhatsApp: +591 7000-0000</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 AutoSubastas Bolivia. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Hecho con <i class="fas fa-heart text-danger"></i> en Bolivia</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/59170000000" target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
+
