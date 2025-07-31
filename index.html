@@ -6,23 +6,44 @@
     <title>Subastas Exclusivas de Autos de Colección - Bolivia</title>
     <meta name="description" content="Subastas de autos a escala únicos y raros en Bolivia. Modelos de colección, Hot Wheels, AutoArt, Kyosho y más.">
     
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/744/744465.png" type="image/png">
+    
+    <!-- Preconexiones para mejorar la velocidad de carga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preload hero image para mejorar el rendimiento -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1572636247594-9357bc0f9b6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#home">
                 <i class="fas fa-car me-2"></i>AutoSubastas
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -55,7 +76,7 @@
         <div class="hero-overlay"></div>
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-10">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="200">
                     <h1 class="hero-title mb-4">
                         Subastas Exclusivas de Autos a Escala
                         <span class="text-warning">Colecciona Historia en Miniatura</span>
@@ -85,7 +106,7 @@
     <section id="valor" class="py-5 bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
                     <h2 class="section-title mb-4">¿Por qué elegir AutoSubastas?</h2>
                     <div class="value-points">
                         <div class="value-point mb-4">
@@ -134,9 +155,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
                     <div class="value-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Colección de autos a escala" class="img-fluid rounded shadow">
+                        <!-- Imagen alternativa de colección de autos -->
+                        <img src="https://images.unsplash.com/photo-1594787318286-3d835c1d207f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Colección de autos a escala" class="img-fluid rounded shadow">
                     </div>
                 </div>
             </div>
@@ -146,20 +168,20 @@
     <!-- Galería de Modelos en Subasta -->
     <section id="subastas" class="py-5">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title">Modelos en Subasta</h2>
                 <p class="section-subtitle">Descubre las piezas más exclusivas disponibles ahora</p>
             </div>
             
             <!-- Filtros -->
-            <div class="row mb-4">
+            <div class="row mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-lg-12">
                     <div class="filter-bar bg-light p-3 rounded">
                         <div class="row g-3">
                             <div class="col-md-3">
                                 <select class="form-select">
                                     <option>Todas las marcas</option>
-                                    <option>Ferrari</option>
+                                    <option>Lamborghini</option>
                                     <option>Toyota</option>
                                     <option>Porsche</option>
                                     <option>BMW</option>
@@ -198,26 +220,27 @@
 
             <!-- Cards de Productos -->
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="auction-card">
                         <div class="card-image">
-                            <img src="https://images.unsplash.com/photo-1544829099-b9a0c5303bea?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ferrari F40" class="card-img-top">
+                            <!-- Imagen de Lamborghini -->
+                            <img src="https://images.unsplash.com/photo-1621135802920-433219591ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lamborghini Aventador" class="card-img-top">
                             <div class="auction-badge">
                                 <span class="badge bg-danger">Termina en 2h 15m</span>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Ferrari F40 1987</h5>
+                            <h5 class="card-title">Lamborghini Aventador SVJ</h5>
                             <p class="card-text">
                                 <small class="text-muted">AutoArt • 1:18 • Nuevo en caja</small>
                             </p>
                             <div class="auction-info">
                                 <div class="current-bid">
                                     <span class="bid-label">Oferta actual:</span>
-                                    <span class="bid-amount">$850 BOB</span>
+                                    <span class="bid-amount">$950 BOB</span>
                                 </div>
                                 <div class="bid-count">
-                                    <i class="fas fa-users me-1"></i>12 ofertas
+                                    <i class="fas fa-users me-1"></i>15 ofertas
                                 </div>
                             </div>
                             <button class="btn btn-primary w-100 mt-3">
@@ -227,7 +250,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="auction-card">
                         <div class="card-image">
                             <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Toyota Supra" class="card-img-top">
@@ -256,7 +279,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="auction-card">
                         <div class="card-image">
                             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Porsche 911" class="card-img-top">
@@ -286,7 +309,7 @@
                 </div>
             </div>
 
-            <div class="text-center mt-5">
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
                 <a href="#" class="btn btn-outline-primary btn-lg">
                     Ver Todas las Subastas <i class="fas fa-arrow-right ms-2"></i>
                 </a>
@@ -297,13 +320,13 @@
     <!-- Testimonios -->
     <section id="testimonios" class="py-5 bg-light">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title">Lo que Dicen Nuestros Coleccionistas</h2>
                 <p class="section-subtitle">Experiencias reales de nuestra comunidad</p>
             </div>
 
             <div class="row g-4 mb-5">
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="stars mb-3">
@@ -325,7 +348,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="stars mb-3">
@@ -347,7 +370,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <div class="stars mb-3">
@@ -372,27 +395,27 @@
 
             <!-- Estadísticas -->
             <div class="row text-center">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="stat-item">
-                        <div class="stat-number">2,000+</div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-item" data-stat="2000">
+                        <div class="stat-number" id="stat1">0+</div>
                         <div class="stat-label">Subastas Completadas</div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="stat-item">
-                        <div class="stat-number">95%</div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-item" data-stat="95">
+                        <div class="stat-number" id="stat2">0%</div>
                         <div class="stat-label">Satisfacción de Compradores</div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-item" data-stat="500">
+                        <div class="stat-number" id="stat3">0+</div>
                         <div class="stat-label">Coleccionistas Activos</div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="stat-item">
-                        <div class="stat-number">9 Dptos.</div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-item" data-stat="9">
+                        <div class="stat-number" id="stat4">0 Dptos.</div>
                         <div class="stat-label">Cobertura Nacional</div>
                     </div>
                 </div>
@@ -403,13 +426,13 @@
     <!-- Seguridad y Confianza -->
     <section id="seguridad" class="py-5">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title">Seguridad y Confianza</h2>
                 <p class="section-subtitle">Tu tranquilidad es nuestra prioridad</p>
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="security-feature text-center">
                         <div class="security-icon mb-3">
                             <i class="fas fa-certificate"></i>
@@ -418,7 +441,7 @@
                         <p>Cada pieza viene con certificado de autenticidad y validación por expertos.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="security-feature text-center">
                         <div class="security-icon mb-3">
                             <i class="fas fa-credit-card"></i>
@@ -427,7 +450,7 @@
                         <p>Tigo Money, QR, transferencias bancarias y tarjetas de crédito/débito.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="security-feature text-center">
                         <div class="security-icon mb-3">
                             <i class="fas fa-undo"></i>
@@ -436,7 +459,7 @@
                         <p>Garantía de reembolso por piezas dañadas o no conformes a la descripción.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="security-feature text-center">
                         <div class="security-icon mb-3">
                             <i class="fas fa-eye"></i>
@@ -453,7 +476,7 @@
     <section id="comunidad" class="py-5 bg-primary text-white">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8" data-aos="fade-right">
                     <h2 class="mb-3">Únete a Nuestra Comunidad</h2>
                     <p class="mb-4">Conecta con otros coleccionistas, participa en eventos exclusivos y mantente al día con las últimas subastas.</p>
                     <div class="community-features">
@@ -479,13 +502,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-left" data-aos-delay="200">
                     <div class="newsletter-signup bg-white text-dark p-4 rounded">
                         <h5 class="mb-3">Suscríbete al Boletín</h5>
                         <p class="small mb-3">Recibe notificaciones de nuevas subastas y eventos exclusivos.</p>
-                        <form>
+                        <form id="newsletterForm">
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Tu email">
+                                <input type="email" class="form-control" placeholder="Tu email" required>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Suscribirse</button>
                         </form>
@@ -500,24 +523,134 @@
         </div>
     </section>
 
+    <!-- Registro (Nueva sección) -->
+    <section id="registro" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Únete a Nuestras Subastas</h2>
+                <p class="section-subtitle">Completa tu registro para comenzar a pujar</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card shadow border-0 rounded-lg">
+                        <div class="card-body p-4 p-md-5">
+                            <form id="registroForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Apellido</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Teléfono</label>
+                                        <input type="tel" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Confirmar Contraseña</label>
+                                        <input type="password" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Ciudad</label>
+                                        <select class="form-select" required>
+                                            <option value="" selected disabled>Selecciona tu ciudad</option>
+                                            <option>La Paz</option>
+                                            <option>Santa Cruz</option>
+                                            <option>Cochabamba</option>
+                                            <option>Sucre</option>
+                                            <option>Tarija</option>
+                                            <option>Potosí</option>
+                                            <option>Oruro</option>
+                                            <option>Beni</option>
+                                            <option>Pando</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="terms" required>
+                                            <label class="form-check-label" for="terms">
+                                                Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary w-100 py-3 mt-3">
+                                            <i class="fas fa-user-plus me-2"></i>Crear mi cuenta
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="text-center mt-4">
+                                <p>¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="remember">
+                                <label class="form-check-label" for="remember">Recordarme</label>
+                            </div>
+                            <a href="#" class="text-primary">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- FAQ -->
     <section id="faq" class="py-5">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title">Preguntas Frecuentes</h2>
                 <p class="section-subtitle">Resolvemos tus dudas más comunes</p>
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
                     <div class="accordion" id="faqAccordion">
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            <h2 class="accordion-header" id="faqHeading1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
                                     ¿Cómo puedo participar en una subasta?
                                 </button>
                             </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion" aria-labelledby="faqHeading1">
                                 <div class="accordion-body">
                                     Primero debes registrarte en nuestra plataforma. Una vez registrado, puedes explorar las subastas activas y hacer ofertas en tiempo real. Solo necesitas hacer clic en "Pujar Ahora" e ingresar tu oferta.
                                 </div>
@@ -525,12 +658,12 @@
                         </div>
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            <h2 class="accordion-header" id="faqHeading2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
                                     ¿Cómo sé si un auto es original?
                                 </button>
                             </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" aria-labelledby="faqHeading2">
                                 <div class="accordion-body">
                                     Todos nuestros modelos son verificados por expertos antes de ser listados. Cada pieza incluye fotos detalladas, descripción completa del fabricante, escala, estado y certificado de autenticidad cuando aplica.
                                 </div>
@@ -538,12 +671,12 @@
                         </div>
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            <h2 class="accordion-header" id="faqHeading3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
                                     ¿Qué pasa si gano la subasta?
                                 </button>
                             </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" aria-labelledby="faqHeading3">
                                 <div class="accordion-body">
                                     Te notificaremos inmediatamente por email y WhatsApp. Tendrás 24 horas para completar el pago. Una vez confirmado el pago, preparamos tu pedido con embalaje especializado y coordinamos el envío.
                                 </div>
@@ -551,12 +684,12 @@
                         </div>
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            <h2 class="accordion-header" id="faqHeading4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
                                     ¿Cuáles son los tiempos y métodos de envío?
                                 </button>
                             </h2>
-                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" aria-labelledby="faqHeading4">
                                 <div class="accordion-body">
                                     Realizamos envíos a todo Bolivia. Los tiempos varían según la ciudad: La Paz y El Alto (1-2 días), Santa Cruz y Cochabamba (2-3 días), otras ciudades (3-5 días). Usamos embalaje especializado para proteger las piezas.
                                 </div>
@@ -564,12 +697,12 @@
                         </div>
 
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            <h2 class="accordion-header" id="faqHeading5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
                                     ¿Cómo proteger mi compra?
                                 </button>
                             </h2>
-                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" aria-labelledby="faqHeading5">
                                 <div class="accordion-body">
                                     Ofrecemos garantía de reembolso si la pieza no coincide con la descripción o llega dañada. Todos los envíos incluyen seguro. Además, mantenemos comunicación constante durante todo el proceso de compra y envío.
                                 </div>
@@ -599,7 +732,7 @@
                 </div>
                 <div class="col-lg-2">
                     <h6 class="mb-3">Enlaces Rápidos</h6>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled footer-links">
                         <li><a href="#subastas" class="text-white-50">Ver Subastas</a></li>
                         <li><a href="#" class="text-white-50">Cómo Funciona</a></li>
                         <li><a href="#" class="text-white-50">Blog</a></li>
@@ -608,7 +741,7 @@
                 </div>
                 <div class="col-lg-2">
                     <h6 class="mb-3">Soporte</h6>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled footer-links">
                         <li><a href="#faq" class="text-white-50">FAQ</a></li>
                         <li><a href="#" class="text-white-50">Términos de Uso</a></li>
                         <li><a href="#" class="text-white-50">Privacidad</a></li>
@@ -639,15 +772,36 @@
 
     <!-- WhatsApp Float Button -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/59170000000" target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/59170000000" target="_blank" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <!-- Custom JS -->
     <script src="script.js"></script>
+    <!-- Inicialización de AOS -->
+    <script>
+        // Inicializar AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Eliminar el preloader cuando todo esté cargado
+            window.addEventListener('load', function() {
+                const preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 300);
+            });
+        });
+    </script>
 </body>
 </html>
-
