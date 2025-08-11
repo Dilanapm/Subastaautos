@@ -27,8 +27,9 @@
     <link rel="stylesheet" href="styles.css">
     
     <!-- Preload hero image para mejorar el rendimiento -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1572636247594-9357bc0f9b6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+    <link rel="preload" as="image" href="https://img.freepik.com/fotos-premium/places-tiene-muchos-autos-miniatura-diferentes-que-ya-hizo-tambien-su-exhibicion-autos-antiguos-venta_950002-199356.jpg">
 </head>
+
 <body>
     <!-- Preloader -->
     <div class="preloader">
@@ -214,6 +215,20 @@
                                 </select>
                             </div>
                         </div>
+                        <!-- Botón de clasificación manual -->
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <button id="classifyImagesBtn" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-magic me-2"></i>Clasificar Imágenes Automáticamente
+                                </button>
+                                <button id="resetImagesBtn" class="btn btn-outline-secondary">
+                                    <i class="fas fa-undo me-2"></i>Restaurar Imágenes Originales
+                                </button>
+                                <small class="text-muted d-block mt-2">
+                                    Usa la clasificación inteligente para optimizar las imágenes de los autos
+                                </small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -224,7 +239,7 @@
                     <div class="auction-card">
                         <div class="card-image">
                             <!-- Imagen de Lamborghini -->
-                            <img src="https://images.unsplash.com/photo-1621135802920-433219591ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lamborghini Aventador" class="card-img-top">
+                            <img src="https://th.bing.com/th/id/R.4e71fcdd9257d32661a172d013c8ae6f?rik=DW2cKJyldCte0w&pid=ImgRaw&r=0" alt="Lamborghini Aventador" class="card-img-top">
                             <div class="auction-badge">
                                 <span class="badge bg-danger">Termina en 2h 15m</span>
                             </div>
